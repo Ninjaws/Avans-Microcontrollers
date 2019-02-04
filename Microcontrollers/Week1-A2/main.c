@@ -2,7 +2,7 @@
  * Week1-A2.c
  *
  * Created: 2-2-2019 10:50:29
- * Author : Gebruiker
+ * Author : Daan & Max
  */ 
 
 #define F_CPU 8000

@@ -2,12 +2,13 @@
  * Week1-B2.c
  *
  * Created: 2-2-2019 11:14:33
- * Author : Gebruiker
+ * Author : Daan & Max
  */ 
 
+// Define some handy constants
 #define F_CPU 8000000L
-#define ON 0xF0
-#define OFF 0xF
+#define ON 0xF0			// hex code to turn all LED's on
+#define OFF 0xF			// hex code to turn all LED's off
 
 #include <avr/io.h>
 #include <util/delay.h>
@@ -16,16 +17,15 @@ void wait(int ms);
 
 int main(void)
 {
-	DDRD = 0b11111111;			// Pins 6+7 PORTD are set to output
+	DDRD = 0b11111111;			// Set all pins to output mode
 	
 	while (1)
 	{
-		PORTD = ON;			// Write 10101010b PORTD
+		PORTD = ON;			    // Turn all LED's on
 		wait( 250 );
-		PORTD = OFF;			// Write 01010101b PORTD
+		PORTD = OFF;			// Turn all LED's off
 		wait( 250 );
 	}
-
 	return 1;
 }
 
@@ -36,5 +36,3 @@ void wait( int ms )
 		_delay_ms( 1 );		// library function (max 30 ms at 8MHz)
 	}
 }
-
-

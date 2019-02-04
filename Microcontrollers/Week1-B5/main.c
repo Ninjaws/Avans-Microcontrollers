@@ -2,9 +2,10 @@
  * Week1-B5.c
  *
  * Created: 2-2-2019 11:22:00
- * Author : Gebruiker
+ * Author : Daan & Max
  */ 
 
+// Define handy constants
 #define F_CPU 8000000L
 #define ON 0x11111111
 #define OFF 0x00000000
@@ -13,6 +14,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
+// Cycle array where each element represents a state of the LED's in an animation
 int cycle[] = {0b00000000, 0b10000001, 0b11000011, 0b11100111, 0b11111111};
 
 void wait(int ms);
@@ -20,6 +22,7 @@ void changeRow(int row, int state);
 
 int main(void)
 {
+	// Set all the rows to output mode to make sure all LED's can be set
 	DDRA = ALL_OUTPUT;
 	DDRB = ALL_OUTPUT;
 	DDRC = ALL_OUTPUT;
@@ -31,13 +34,13 @@ int main(void)
 	while (1)
 	{
 		int size = sizeof(cycle)/sizeof(int);
-		for (int i = 0; i < size; i++)
+		for (int i = 0; i < size; i++)		// Perform all the states in the cycle with a delay
 		{
 			changeRow(0, cycle[i]);
 			wait(200);
 		}
 
-		for (int i = size - 1; i >= 0; i--)
+		for (int i = size - 1; i >= 0; i--)		// Perform all the states in the cycle with a delay backwards
 		{
 			changeRow(0, cycle[i]);
 			wait(200);
@@ -54,6 +57,7 @@ void wait( int ms )
 	}
 }
 
+// Changes the LED's of a row using a number so it can be iterated upon
 void changeRow(int row, int state)
 {
 	switch (row)
@@ -83,4 +87,3 @@ void changeRow(int row, int state)
 		break;
 	}
 }
-
