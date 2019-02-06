@@ -11,7 +11,7 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
-int bit = 0;
+int bit = 0;	// Global index for the current light
 
 void wait(int);
 void showLight();
@@ -29,7 +29,7 @@ int main(void)
 
 	while (1)
 	{
-		
+		// Empty loop: only interrupt has action
 	}
 	return 1;
 }
@@ -40,19 +40,19 @@ void wait(int ms)
 		_delay_ms(1);		// library function (max 30 ms at 8MHz)
 }
 
-ISR(INT1_vect)
+ISR(INT1_vect)		// Interrupt for button D1
 {
 	bit++;
 	showLight();
 }
 
-ISR(INT2_vect)
+ISR(INT2_vect)		// Interrupt for button D2
 {
 	bit--;
 	showLight();	
 }
 
-void showLight()
+void showLight()	// Looping the current bit and lighting the board
 {
 	if (bit < 0)
 		bit = 7;
