@@ -2,7 +2,7 @@
  * Week3-B2.c
  *
  * Created: 13-2-2019 20:05:26
- * Author : Gebruiker
+ * Author : Ian Vink
  */ 
 
 #define F_CPU 8000000L

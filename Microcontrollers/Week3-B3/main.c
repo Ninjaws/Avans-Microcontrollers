@@ -14,7 +14,7 @@
 
 int counter = 0;
 int ms_counter = 0;
-int mses[] = {2500, 1500};
+int mses[] = {25, 15};
 ISR(TIMER2_COMP_vect){
 	if((++counter) > mses[ms_counter]){
 		PORTD ^= 1;
