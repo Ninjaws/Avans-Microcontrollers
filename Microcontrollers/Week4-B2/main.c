@@ -28,7 +28,7 @@ int main(void)
 
 void adcInit()
 {
-	ADMUX  = 0b01100011;			// AREF=VCC, result left adjusted, channel3 at pin PF3
+	ADMUX  = 0b11100011;			// AREF=VCC, result left adjusted, channel3 at pin PF3
 	ADCSRA = 0b11000110;		// ADC-enable, no interrupt, start, not free running, division by 64
 }
 
