@@ -41,8 +41,8 @@ int main()
 
 	//Setbrightness to maximum
 	spi_slaveSelect(0);         // Select display chip
-	spi_write(0x0A);         		// 	digit adress: (digit place)
-	spi_write(0x0F);  		// 	digit value: i (= digit place)
+	spi_write(0x0A);         		// 	digit adress: intensity
+	spi_write(0x0F);  		// 	digit value: highest intensity
 	spi_slaveDeSelect(0); 		// Deselect display chip
 	// write 4-digit data
 	char n = 4;
