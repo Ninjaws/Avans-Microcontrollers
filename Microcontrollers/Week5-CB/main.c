@@ -38,6 +38,12 @@ int main()
 	}
 	wait(1000);
 
+
+	//Setbrightness to maximum
+	spi_slaveSelect(0);         // Select display chip
+	spi_write(0x0A);         		// 	digit adress: (digit place)
+	spi_write(0x0F);  		// 	digit value: i (= digit place)
+	spi_slaveDeSelect(0); 		// Deselect display chip
 	// write 4-digit data
 	char n = 4;
 	for (char i =1; i<=4; i++)
